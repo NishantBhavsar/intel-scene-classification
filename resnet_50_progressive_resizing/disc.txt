@@ -1,0 +1,71 @@
+Resnet 50 - Fastai
+===================
+
+
+PART -1
+#####################
+
+Data prep
+===========
+im size = 75
+bs = 128
+transformations = tfms = get_transforms(xtra_tfms=[cutout(n_holes=(1,4), length=(10, 20), p=.75)])
+
+
+Model - stage 1
+===============
+fit one cycle
+epochs - 5
+lr - (1e-2)/2
+
+tl - 0.349816	
+vl - 0.293580	
+v accu - 0.894335
+
+
+Model - stage 2
+================
+fit one cycle
+epochs - 5
+lr - slice(1e-5, lr/5)
+
+tl - 0.146343
+vl - 0.205148
+v accu - 0.929557
+
+
+PART -2
+#####################
+
+Data prep
+===========
+im size = 150
+bs = 128
+transformations = tfms = get_transforms(xtra_tfms=[cutout(n_holes=(1,4), length=(10, 20), p=.75)])
+
+
+Model - stage 1
+===============
+fit one cycle
+epochs - 5
+lr - (1e-2)/2
+
+tl - 0.105784	
+vl - 0.167542	
+v accu - 0.946287
+
+
+Model - stage 2
+================
+NO satge 2
+
+
+Result
+=======
+val tta - 0.9445259759319049
+val - 0.9462870560610508
+
+test tta pl - 0.956164383561644
+test pl - 0.955251141552511
+
+

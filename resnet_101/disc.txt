@@ -1,0 +1,41 @@
+Resnet 101 - Fastai
+===================
+
+Data prep
+===========
+im size = 150
+bs = 128
+transformations = get_transforms(xtra_tfms=[cutout(n_holes=(1,4), length=(10, 20), p=.75), jitter(magnitude=0.005, p=.25)])
+
+
+Model - stage 1
+===============
+fit one cycle
+epochs - 8
+lr - 1e-2
+
+tl - 0.119182	
+vl - 0.166670	
+v accu - 0.947168
+
+
+Model - stage 2
+================
+fit one cycle
+epochs - 2
+le - slice(1e-6, 1e-5)
+
+tl - 0.111774
+vl - 0.168699
+v accu - 0.947168
+
+
+Result
+=======
+val tta - 0.9454065159964778
+val - 0.9471675961256237
+
+test tta pl - 0.951598173515982
+test pl - 0.9493150684931507
+
+
