@@ -59,13 +59,13 @@ Used these augmentation
 
 Image example with augmentation
 
-![Data sample](images/img_with_aug.jpg)
+![Data sample](images/img_with_aug.png)
 
 ### Result
 
 |model|Val Acc| Val TTA Acc |  Info |
 |-----|-------|-------------|-------|
-| ResNet 50 places | 0.9533 | 0.9506 | 1st trained on img size 75, then trained on img size 150 |
+| ResNet 50 places | 0.9533 | 0.9506 | first trained on img size 75, then trained on img size 150 |
 | ResNet 50 | 0.9463 | 0.9445 | first trained on img size 75, then trained on img size 150 |
 | ResNet 101 | 0.9472 | 0.9454 | trained on img size 150 |
 | SE ResNext 101 | 0.9436 | 0.9507 | trained on img size 150 |
@@ -76,9 +76,11 @@ Image example with augmentation
 
 - private LB Accuracy score - 0.9544
 
+#### Ensemble model
+![ens cm](images/ensemble_cm.png)
+
 #### ResNet 50 Imagenet
 
-Confusion matrix
 ![rn50 cm](images/rn50_cm.png)
 
 Class activation mapping (CAM), top losses
@@ -86,7 +88,6 @@ Class activation mapping (CAM), top losses
 
 #### ResNet 50 Places 365
 
-Confusion matrix
 ![rn50 places cm](images/rn50_plac_part2_cm.png)
 
 Class activation mapping (CAM)
@@ -94,7 +95,6 @@ Class activation mapping (CAM)
 
 #### ResNet 101 Imagenet
 
-Confusion matrix
 ![rn101 cm](images/rn101_cm.png)
 
 Class activation mapping (CAM), top losses
@@ -103,10 +103,9 @@ Class activation mapping (CAM), top losses
 
 #### SE ResNeXt 101 Imagenet
 
-Confusion matrix
 ![se rnxt 101 cm](images/se_rn101_cm.png)
 
-Class activation mapping (CAM), top losses
+Class activation mapping (CAM)
 ![se rnxt 101 cam ](images/se_rn101_cam.png)
 
 
