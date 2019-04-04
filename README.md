@@ -31,12 +31,12 @@ The Evaluation metric is accuracy.
 
 
 ### Python 3.6 libraries
-`
+```
 fastai==1.0.50.post1
 torch==1.0.1.post2
 torchvision==0.2.2
 pretrainedmodels
-`
+```
 
 ### Models
 Following models are used :
@@ -131,10 +131,10 @@ Class activation mapping (CAM)
     │   ├── resnet-101.ipynb
     │   └── ...
     ├── resnet50_places_progressive_resizing
-    │   ├── ResNet-50-Places-365.ipynb
+    │   ├── resnet-50-places.ipynb
     │   └── ...
     ├── resnet_50_progressive_resizing
-    │   ├── ResNet-50.ipynb
+    │   ├── resnet-50.ipynb
     │   └── ...
     ├── se_resnext101
     │   ├── se_resnext101.ipynb
@@ -143,6 +143,8 @@ Class activation mapping (CAM)
     │	├── images
     │	├── test.csv
     │	└── train.csv
+    ├── images
+    │   └── ...
     ├── sub.csv
     └── README.md
 
@@ -157,20 +159,20 @@ Class activation mapping (CAM)
 3. Keep the train file in input folder as it is, I have added one column named `valid` which shows which images are validation images.
 
 4. I have used 4 model architectures,
-- To run ResNet 50, go to `./resnet_50_progressive_resizing/` and run `resnet-50.ipynb` file.
+ - To run ResNet 50, go to `./resnet_50_progressive_resizing/` and run `resnet-50.ipynb` file.
 
-- To run ResNet 50 places 365 model, go to `./resnet_101/` and run `resnet-101.ipynb` file.
+ - To run ResNet 50 places 365 model, go to `./resnet_101/` and run `resnet-101.ipynb` file.
 
-- To run ResNet 101, go to `./resnet50_places_progressive_resizing/` and run `resnet-50-places.ipynb` file.
+ - To run ResNet 101, go to `./resnet50_places_progressive_resizing/` and run `resnet-50-places.ipynb` file.
 
-- To run SE-ResNeXt 101, go to `./se_resnext101/` and run `se_resnext101.ipynb` file.
+ - To run SE-ResNeXt 101, go to `./se_resnext101/` and run `se_resnext101.ipynb` file.
 
-- All of these notebooks will generate output files for validation probabilities, and test probabilities in their respective folder.
+ - All of these notebooks will generate output files for validation probabilities, and test probabilities in their respective folder.
 
 5. To get the final submission,
-- Final model is simple average of probabilities of all 4 models Test time augmented output on test images.
-- Run `ensemble.ipynb` to get final submission, predictions on test data will be saved as `sub.csv` .
-- Here this notebook takes `test_probs_tta.csv` from all the model folders and average the probabilities.
+ - Final model is simple average of probabilities of all 4 models Test time augmented output on test images.
+ - Run `ensemble.ipynb` to get final submission, predictions on test data will be saved as `sub.csv` .
+ - Here this notebook takes `test_probs_tta.csv` from all the model folders and average the probabilities.
 
 
 
