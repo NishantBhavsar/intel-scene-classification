@@ -30,6 +30,14 @@ There are 17034 images in train and 7301 images in test data. The categories of 
 The Evaluation metric is accuracy.
 
 
+### Python 3.6 libraries
+`
+fastai==1.0.50.post1
+torch==1.0.1.post2
+torchvision==0.2.2
+pretrainedmodels
+`
+
 ### Models
 Following models are used :
 
@@ -61,7 +69,7 @@ Image example with augmentation
 
 ![Data sample](images/img_with_aug.png)
 
-### Result
+### Results
 
 |model|Val Acc| Val TTA Acc |  Info |
 |-----|-------|-------------|-------|
@@ -79,6 +87,7 @@ Image example with augmentation
 #### Ensemble model
 ![ens cm](images/ensemble_cm.png)
 
+---
 #### ResNet 50 Imagenet
 
 ![rn50 cm](images/rn50_cm.png)
@@ -86,6 +95,7 @@ Image example with augmentation
 Class activation mapping (CAM), top losses
 ![rn50 cam loss](images/rn50_cam_loss.png)
 
+---
 #### ResNet 50 Places 365
 
 ![rn50 places cm](images/rn50_plac_part2_cm.png)
@@ -93,6 +103,7 @@ Class activation mapping (CAM), top losses
 Class activation mapping (CAM)
 ![rn50 places cam ](images/rn50_plac_cam.png)
 
+---
 #### ResNet 101 Imagenet
 
 ![rn101 cm](images/rn101_cm.png)
@@ -100,7 +111,7 @@ Class activation mapping (CAM)
 Class activation mapping (CAM), top losses
 ![rn101 cam ](images/rn101_cam_loss.png)
 
-
+---
 #### SE ResNeXt 101 Imagenet
 
 ![se rnxt 101 cm](images/se_rn101_cm.png)
@@ -108,6 +119,58 @@ Class activation mapping (CAM), top losses
 Class activation mapping (CAM)
 ![se rnxt 101 cam ](images/se_rn101_cam.png)
 
+---
+
+### Folder structure
+
+```
+.
+└── intel-scene-classification
+    ├── ensemble.ipynb
+    ├── resnet_101
+    │   ├── resnet-101.ipynb
+    │   └── ...
+    ├── resnet50_places_progressive_resizing
+    │   ├── ResNet-50-Places-365.ipynb
+    │   └── ...
+    ├── resnet_50_progressive_resizing
+    │   ├── ResNet-50.ipynb
+    │   └── ...
+    ├── se_resnext101
+    │   ├── se_resnext101.ipynb
+    │   └── ...
+    ├── input
+    │	├── images
+    │	├── test.csv
+    │	└── train.csv
+    ├── sub.csv
+    └── README.md
+
+
+```
+
+### Run
+
+1. Create one folder named `images` in `./input/images/`
+2. Now put all the images in this folder `./input/images/images/`
+
+3. Keep the train file in input folder as it is, I have added one column named `valid` which shows which images are validation images.
+
+4. I have used 4 model architectures,
+- To run ResNet 50, go to `./resnet_50_progressive_resizing/` and run `resnet-50.ipynb` file.
+
+- To run ResNet 50 places 365 model, go to `./resnet_101/` and run `resnet-101.ipynb` file.
+
+- To run ResNet 101, go to `./resnet50_places_progressive_resizing/` and run `resnet-50-places.ipynb` file.
+
+- To run SE-ResNeXt 101, go to `./se_resnext101/` and run `se_resnext101.ipynb` file.
+
+- All of these notebooks will generate output files for validation probabilities, and test probabilities in their respective folder.
+
+5. To get the final submission,
+- Final model is simple average of probabilities of all 4 models Test time augmented output on test images.
+- Run `ensemble.ipynb` to get final submission, predictions on test data will be saved as `sub.csv` .
+- Here this notebook takes `test_probs_tta.csv` from all the model folders and average the probabilities.
 
 
 
