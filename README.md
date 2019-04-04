@@ -73,11 +73,11 @@ Image example with augmentation
 
 |model|Val Acc| Val TTA Acc |  Info |
 |-----|-------|-------------|-------|
-| ResNet 50 places | 0.9533 | 0.9506 | first trained on img size 75, then trained on img size 150 |
-| ResNet 50 | 0.9463 | 0.9445 | first trained on img size 75, then trained on img size 150 |
-| ResNet 101 | 0.9472 | 0.9454 | trained on img size 150 |
-| SE ResNext 101 | 0.9436 | 0.9507 | trained on img size 150 |
-| Ensemble | - | 0.9554 | average of probabilities of all model for each class |
+| [ResNet 50 places](resnet50_places_progressive_resizing/resnet-50-places.ipynb) | 0.9533 | 0.9506 | first trained on img size 75, then trained on img size 150 |
+| [ResNet 50](resnet_50_progressive_resizing/resnet-50.ipynb) | 0.9463 | 0.9445 | first trained on img size 75, then trained on img size 150 |
+| [ResNet 101](resnet_101/resnet-101.ipynb) | 0.9472 | 0.9454 | trained on img size 150 |
+| [SE ResNext 101](se_resnext101/se_resnext101.ipynb) | 0.9436 | 0.9507 | trained on img size 150 |
+| [Ensemble](ensemble.ipynb) | - | 0.9554 | average of probabilities of all model for each class |
 
 - I have used Test time augmentation for final submission.
 - Took average of probabilities of all model for each class.
